@@ -23,25 +23,15 @@ require("lazy").setup({
 		{'hrsh7th/cmp-nvim-lsp'},
 		{'saadparwaiz1/cmp_luasnip'},
 		{'L3MON4D3/LuaSnip'},
+        {'echasnovski/mini.nvim'},
+        {'lervag/vimtex'},
+        { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+        { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
 	},
 	checker = { enabled = true },
 })
 
 --return require('packer').startup(function(use)
- --   use 'L3MON4D3/LuaSnip' -- Snippets plugin
---
- --   use 'echasnovski/mini.nvim'
-
-   -- use 'lervag/vimtex'
-
-    --use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
    -- use { 'nvim-telescope/telescope.nvim', tag = '0.1.5', requires = { {'nvim-lua/plenary.nvim'} } }
-
-    -- -- Automatically set up your configuration after cloning packer.nvim
-    -- -- Put this at the end after all plugins
-   -- if packer_bootstrap then
-  --      require('packer').sync()
-  --  end
 --end)
 
