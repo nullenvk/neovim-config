@@ -1,61 +1,47 @@
--- Install Packer automatically if it's not installed(Bootstraping)
--- Hint: string concatenation is done by `..`
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
-local packer_bootstrap = ensure_packer()
+vim.opt.rtp:prepend(lazypath)
 
+require("lazy").setup({
+	spec = {
+		{'tanvirtin/monokai.nvim'},
+		{'neovim/nvim-lspconfig'},
+		{'hrsh7th/nvim-cmp'},
+		{'hrsh7th/cmp-nvim-lsp'},
+		{'saadparwaiz1/cmp_luasnip'},
+		{'L3MON4D3/LuaSnip'},
+	},
+	checker = { enabled = true },
+})
 
--- Reload configurations if we modify plugins.lua
--- Hint
---     <afile> - replaced with the filename of the buffer being manipulated
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+--return require('packer').startup(function(use)
+ --   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+--
+ --   use 'echasnovski/mini.nvim'
 
+   -- use 'lervag/vimtex'
 
--- Install plugins here - `use ...`
--- Packer.nvim hints
---     after = string or list,           -- Specifies plugins to load before this plugin. See "sequencing" below
---     config = string or function,      -- Specifies code to run after this plugin is loaded
---     requires = string or list,        -- Specifies plugin dependencies. See "dependencies". 
---     ft = string or list,              -- Specifies filetypes which load this plugin.
---     run = string, function, or table, -- Specify operations to be run after successful installs/updates of a plugin
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    --use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    use 'tanvirtin/monokai.nvim'
+   -- use { 'nvim-telescope/telescope.nvim', tag = '0.1.5', requires = { {'nvim-lua/plenary.nvim'} } }
 
-    use 'neovim/nvim-lspconfig'
-
-    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
-
-    use 'echasnovski/mini.nvim'
-
-    use 'lervag/vimtex'
-
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.5', requires = { {'nvim-lua/plenary.nvim'} } }
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-end)
+    -- -- Automatically set up your configuration after cloning packer.nvim
+    -- -- Put this at the end after all plugins
+   -- if packer_bootstrap then
+  --      require('packer').sync()
+  --  end
+--end)
 
