@@ -18,6 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{'tanvirtin/monokai.nvim'},
+        { 'williamboman/mason.nvim' },
+        { 'williamboman/mason-lspconfig.nvim' },
 		{'neovim/nvim-lspconfig'},
 		{'hrsh7th/nvim-cmp'},
 		{'hrsh7th/cmp-nvim-lsp'},

@@ -1,3 +1,8 @@
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {"clangd"}
+})
+
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 
@@ -14,19 +19,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
-lspconfig.pylsp.setup {
-    capabilities = capabilities,
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    enabled = false
-                }
-            }
-        }
-    }
-}
 
 -- luasnip setup
 local luasnip = require 'luasnip'
