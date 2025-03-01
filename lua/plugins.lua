@@ -17,21 +17,22 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{'tanvirtin/monokai.nvim'},
-        { 'williamboman/mason.nvim' },
-        { 'williamboman/mason-lspconfig.nvim' },
-		{'neovim/nvim-lspconfig'},
-		{'hrsh7th/nvim-cmp'},
-		{'hrsh7th/cmp-nvim-lsp'},
-		{'saadparwaiz1/cmp_luasnip'},
-		{'L3MON4D3/LuaSnip'},
-        {'echasnovski/mini.nvim'},
-        {'lervag/vimtex'},
-        { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-        { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
-        { 'tpope/vim-sleuth' },
-	},
-	checker = { enabled = true },
+	  {'tanvirtin/monokai.nvim'},
+	  { 'williamboman/mason.nvim' },
+	  { 'williamboman/mason-lspconfig.nvim' },
+	  {'neovim/nvim-lspconfig'},
+	  {'hrsh7th/nvim-cmp'},
+	  {'hrsh7th/cmp-nvim-lsp'},
+	  {'saadparwaiz1/cmp_luasnip'},
+	  {'L3MON4D3/LuaSnip'},
+	  {'echasnovski/mini.nvim'},
+	  {'lervag/vimtex'},
+	  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+	  { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
+	  { 'tpope/vim-sleuth' },
+	  { 'pearofducks/ansible-vim' },
+	  },
+	  checker = { enabled = true },
 })
 
 --return require('packer').startup(function(use)
