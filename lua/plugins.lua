@@ -30,6 +30,9 @@ require("lazy").setup({
 	  { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
 	  { 'tpope/vim-sleuth' },
 	  { 'pearofducks/ansible-vim' },
+	  {'nvim-tree/nvim-tree.lua'},
+	  {'nvim-tree/nvim-web-devicons'},
+	  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 	  },
 	  checker = { enabled = true },
 })
