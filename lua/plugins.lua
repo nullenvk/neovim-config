@@ -33,6 +33,7 @@ require("lazy").setup({
 	  {'nvim-tree/nvim-tree.lua'},
 	  {'nvim-tree/nvim-web-devicons'},
 	  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+	  {'chomosuke/typst-preview.nvim', ft='typst', version='1.*', opts={} },
 	  },
 	  checker = { enabled = true },
 })
