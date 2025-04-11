@@ -17,7 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-	  {'tanvirtin/monokai.nvim'},
+	  --{'tanvirtin/monokai.nvim'},
+	  {'folke/tokyonight.nvim'},
 	  { 'williamboman/mason.nvim' },
 	  { 'williamboman/mason-lspconfig.nvim' },
 	  {'neovim/nvim-lspconfig'},
