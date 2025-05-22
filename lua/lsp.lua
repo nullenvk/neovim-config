@@ -18,6 +18,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- TODO: Move to basedpyright (for VSCode features)
 -- Python config
 lspconfig['pylsp'].setup {
   capabilities = capabilities,
