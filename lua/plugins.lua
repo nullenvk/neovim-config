@@ -19,8 +19,6 @@ require("lazy").setup({
 	spec = {
 	  --{'tanvirtin/monokai.nvim'},
 	  {'folke/tokyonight.nvim'},
-	  { 'williamboman/mason.nvim' },
-	  { 'williamboman/mason-lspconfig.nvim' },
 	  {'neovim/nvim-lspconfig'},
 	  {'hrsh7th/nvim-cmp'},
 	  {'hrsh7th/cmp-nvim-lsp'},
@@ -30,7 +28,6 @@ require("lazy").setup({
 	  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 	  { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
 	  { 'tpope/vim-sleuth' },
-	  { 'pearofducks/ansible-vim' },
 	  {'nvim-tree/nvim-tree.lua'},
 	  {'nvim-tree/nvim-web-devicons'},
 	  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
