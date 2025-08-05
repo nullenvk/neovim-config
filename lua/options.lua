@@ -22,6 +22,7 @@ vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- TODO: replace with lsp_lines.nvim
 vim.diagnostic.config({
   virtual_text = true,
 })
