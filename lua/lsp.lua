@@ -11,6 +11,27 @@ vim.lsp.config('basedpyright', {
   }
 })
 
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT'
+      },
+
+      diagnostics = {
+        globals = {
+          'vim',
+          'require',
+        }
+      },
+
+      telemetry = {
+        enable = false,
+      }
+    }
+  }
+})
+
 vim.lsp.enable {
   'clangd',
   'lua_ls',
